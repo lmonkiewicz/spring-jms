@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * Created by Deam on 2016-12-12.
+ * Created by lmonkiewicz on 2016-12-12.
  */
 @Data
 public class OrderItem {

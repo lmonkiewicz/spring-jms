@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by Deam on 2016-12-12.
+ * Created by lmonkiewicz on 2016-12-12.
  */
 @RestController
 @RequestMapping("/consumer")

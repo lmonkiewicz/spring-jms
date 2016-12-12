@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Deam on 2016-12-12.
+ * Created by lmonkiewicz on 2016-12-12.
  */
 @Data
 public class Order {

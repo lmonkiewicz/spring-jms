@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * Created by Deam on 2016-12-12.
+ * Created by lmonkiewicz on 2016-12-12.
  */
 @RestController
 @RequestMapping("/publisher")
