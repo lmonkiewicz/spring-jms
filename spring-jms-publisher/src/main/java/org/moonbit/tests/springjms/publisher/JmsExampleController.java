@@ -26,17 +26,30 @@ public class JmsExampleController {
     @Value("${outbound.orders}")
     private String ordersDestination;
 
-    @RequestMapping(value = "/generate", method = RequestMethod.GET)
-    public ResponseEntity generate(){
-        final Order order = Order.builder()
+    @Value("${outbound.orders2}")
+    private String orders2Destination;
+
+    @RequestMapping(value = "/1/generate", method = RequestMethod.GET)
+    public ResponseEntity generate1(){
+        final Order order = createOrder();
+        jmsTemplate.convertAndSend(ordersDestination, order);
+        return ResponseEntity.ok(order);
+    }
+
+    @RequestMapping(value = "/2/generate", method = RequestMethod.GET)
+    public ResponseEntity generate2(){
+        final Order order = createOrder();
+        jmsTemplate.convertAndSend(orders2Destination, order);
+        return ResponseEntity.ok(order);
+    }
+
+    private Order createOrder() {
+        return Order.builder()
                 .orderId(UUID.randomUUID().toString())
                 .orderDate(new Date())
                 .item(OrderItem.builder().name("First item").price(Math.random() * 10.0).build())
                 .item(OrderItem.builder().name("Second item").price(Math.random() * 10.0).build())
                 .item(OrderItem.builder().name("Third item").price(Math.random() * 10.0).build())
                 .build();
-
-        jmsTemplate.convertAndSend(ordersDestination, order);
-        return ResponseEntity.ok(order);
     }
 }
